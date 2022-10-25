@@ -28,7 +28,7 @@ const Header = () => {
 
                     <Nav>
                         <Nav.Link><Link to='/login'><Button variant=''>Login</Button></Link></Nav.Link>
-                        <Nav.Link><Link to='/register'><Button variant=''>register</Button></Link></Nav.Link>
+                        <Nav.Link><Link to='/register'><Button variant=''>Register</Button></Link></Nav.Link>
 
                     </Nav>
                 </Navbar.Collapse>
