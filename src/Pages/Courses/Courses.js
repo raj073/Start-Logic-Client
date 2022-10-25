@@ -4,6 +4,8 @@ const Courses = () => {
     return (
         <div>
 
+            <h1 className='text-center'>This is Courses</h1>
+
         </div>
     );
 };
