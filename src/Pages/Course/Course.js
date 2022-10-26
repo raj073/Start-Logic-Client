@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
-import { FaDollarSign, FaShareAlt, FaStar } from 'react-icons/fa';
+import { FaDollarSign } from 'react-icons/fa';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 
