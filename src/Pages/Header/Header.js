@@ -9,6 +9,8 @@ import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
 import { FaUserAlt } from "react-icons/fa";
 import Icon from '../../assets/images/distance-learning.png';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 const Header = () => {
@@ -51,26 +53,26 @@ const Header = () => {
                     </Nav>
 
                     <Nav>
-                        {/* <Nav.Link><Link to='/login'><Button variant=''>Login</Button></Link></Nav.Link>
-                        <Nav.Link><Link to='/register'><Button variant=''>Register</Button></Link></Nav.Link> */}
 
                         {
                             user?.uid ?
                                 <>
-
                                     <Nav.Link>
-                                        <span>
-                                            {
-                                                user?.photoURL ?
-                                                    <Image
-                                                        style={{ height: '30px' }}
-                                                        roundedCircle
-                                                        src={user?.photoURL}>
-                                                    </Image>
-                                                    : <FaUserAlt></FaUserAlt>
-                                            }
-                                        </span>{' '}{' '}
-                                        {user?.displayName}
+
+                                        <OverlayTrigger placement="bottom" overlay={<Tooltip id="tooltip">{user?.displayName}</Tooltip>}>
+                                            <span className="d-inline-block">
+                                                {
+                                                    user?.photoURL ?
+                                                        <Image
+                                                            style={{ height: '40px' }}
+                                                            roundedCircle
+                                                            src={user?.photoURL}>
+                                                        </Image>
+                                                        : <FaUserAlt></FaUserAlt>
+                                                }
+                                            </span>
+                                        </OverlayTrigger>
+
                                     </Nav.Link>&nbsp;&nbsp;&nbsp;
                                     <Button onClick={handleSignOut} variant="outline-dark">Sign Out</Button>{' '}
 

@@ -28,6 +28,10 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Login Successful', {
+                    position: "top-right"
+                });
             })
             .catch(error => {
                 console.error(error);
@@ -39,6 +43,10 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Login Successful', {
+                    position: "top-right"
+                });
             })
             .catch(error => {
                 console.error(error);
