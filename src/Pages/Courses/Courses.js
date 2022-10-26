@@ -36,7 +36,7 @@ const Courses = () => {
 
                     <Col lg="9">
 
-                        <div className='ms-3 row row-cols-lg-3 row-cols-md-2 row-cols-1 py-3 gy-3'>
+                        <div className='ms-3 row row-cols-lg-2 row-cols-md-2 row-cols-1 py-3 gy-3'>
 
                             {
                                 courses.map(course => <Course
