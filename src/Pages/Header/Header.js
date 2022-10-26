@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import { Image } from 'react-bootstrap';
 import { FaUserAlt } from "react-icons/fa";
+import Icon from '../../assets/images/distance-learning.png';
 
 
 const Header = () => {
@@ -29,7 +30,12 @@ const Header = () => {
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" className='shadow mb-5'>
             <Container>
                 <Navbar.Brand>
-                    <Button className='fs-4' variant="primary">
+                    <Image
+                        style={{ height: '60px' }}
+                        roundedCircle
+                        src={Icon}>
+                    </Image> &nbsp;&nbsp;
+                    <Button className='fs-4' variant="primary" size="sm">
                         <Link style={{ textDecoration: 'none', color: 'white' }} to='/'>Distance Learning</Link>
                     </Button>
                 </Navbar.Brand>
