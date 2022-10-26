@@ -55,7 +55,7 @@ const Course = ({ courseDetails }) => {
                         }
 
                     </Card.Text>
-                    <Link to={`/course/${course_id}`}>
+                    <Link to={`/courses/${course_id}`}>
                         <Button variant="info" size="lg">
                             Course Details
                         </Button>

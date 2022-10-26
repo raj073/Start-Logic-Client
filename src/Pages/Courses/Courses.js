@@ -28,7 +28,7 @@ const Courses = () => {
 
 
                                 <Button className='mb-2 fs-6' variant="outline-info" size="sm">
-                                    <Link style={{ textDecoration: 'none' }}>{category.course_name}</Link>
+                                    <Link to={`/courses/${category.course_id}`} style={{ textDecoration: 'none' }}>{category.course_name}</Link>
                                 </Button>
                             </ListGroup>)
                         }
