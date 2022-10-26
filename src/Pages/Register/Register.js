@@ -59,7 +59,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div style={{ marginBottom: '200px' }}>
 
             <Container>
                 <Row className="vh-100 d-flex justify-content-center align-items-center">
