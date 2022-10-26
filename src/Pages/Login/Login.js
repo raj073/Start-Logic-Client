@@ -3,8 +3,71 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { useContext } from 'react';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+
+    const [error, setError] = useState('');
+
+    const { googleSignIn, githubSignIn, signIn } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('');
+                navigate(from, { replace: true });
+                toast.success('Login Successful', {
+                    position: "top-right"
+                });
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message);
+                form.reset();
+            })
+    }
 
     return (
         <div>
@@ -20,7 +83,7 @@ const Login = () => {
                                         Sign In <br /> <span>Welcome</span> </h2>
                                     <p className=" mb-4 fs-3 text-uppercase text-center">Distance Learning</p>
                                     <div>
-                                        <Form>
+                                        <Form onSubmit={handleLogin}>
                                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                                 <Form.Label className="text-center">
                                                     Your Email
@@ -41,7 +104,7 @@ const Login = () => {
                                             >
                                                 <div>
                                                     <Form.Text className="text-danger p-2 fw-bold shadow-lg rounded">
-
+                                                        {error}
                                                     </Form.Text>
                                                 </div>
                                             </Form.Group>
@@ -50,19 +113,19 @@ const Login = () => {
                                                     LOGIN
                                                 </Button>
                                             </div>
-                                            <div class="divider">
+                                            <div className="divider">
                                                 <span></span><span>OR</span><span></span>
                                             </div>
                                             <div className="d-grid">
-                                                <Button className='fw-semibold' variant="outline-primary" type="submit">
+                                                <Button onClick={handleGoogleSignIn} className='fw-semibold' variant="outline-primary" type="submit">
                                                     <FaGoogle></FaGoogle> &nbsp; SIGN IN WITH GOOGLE
                                                 </Button>
                                             </div>
-                                            <div class="divider">
+                                            <div className="divider">
                                                 <span></span><span>OR</span><span></span>
                                             </div>
                                             <div className="d-grid">
-                                                <Button className='fw-semibold' variant="outline-primary" type="submit">
+                                                <Button onClick={handleGithubSignIn} className='fw-semibold' variant="outline-primary" type="submit">
                                                     <FaGithub></FaGithub> &nbsp; SIGN IN WITH GITHUB
                                                 </Button>
                                             </div>

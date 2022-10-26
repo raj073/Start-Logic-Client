@@ -15,8 +15,8 @@ const Home = () => {
                     alt="First slide"
                 />
                 <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    <h3>Online Course</h3>
+                    <p>Online Course is a program of learning that's organized according to a syllabus (usually in units) and that takes place in a virtual space.</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -27,8 +27,9 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>Distance Learning</h3>
+                    <p>Participation in Online Courses and Interaction With a
+                        Virtual Agent</p>
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
@@ -39,9 +40,9 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Third slide label</h3>
+                    <h3>Machine Learning</h3>
                     <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                        Machine learning is a branch of artificial intelligence (AI) and computer science which focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy.
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>
@@ -53,9 +54,9 @@ const Home = () => {
                 />
 
                 <Carousel.Caption>
-                    <h3>Fourth slide label</h3>
-                    <p>
-                        Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+                    <h3 className='text-dark'>Get Certified</h3>
+                    <p className='text-white'>
+                        Earn a career credential or prepare for a certification with Professional Certificate programs.
                     </p>
                 </Carousel.Caption>
             </Carousel.Item>

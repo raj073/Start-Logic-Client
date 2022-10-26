@@ -1,8 +1,62 @@
 import React from 'react';
+import { useContext } from 'react';
+import { useState } from 'react';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Register = () => {
+
+    const [error, setError] = useState('');
+
+    const { createUser, updateUserProfile } = useContext(AuthContext);
+
+    const handleRegister = (event) => {
+
+        event.preventDefault();
+
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photoURL, email, password);
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                form.reset();
+                handleUpdateUserProfile(name, photoURL);
+                toast.success('Registration Successful', {
+                    position: "top-right"
+                });
+            })
+            .catch(error => {
+                console.error(error);
+                setError(error.message);
+                form.reset();
+            })
+
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+
+        updateUserProfile(profile)
+            .then(() => {
+
+            })
+            .catch(() => {
+                console.error(error);
+            })
+    }
 
     return (
         <div>
@@ -17,13 +71,13 @@ const Register = () => {
                                     <h2 className="fw-bold mb-2 text-center"><span className='text-uppercase'>Register</span> <br /> Now to Explore More</h2>
                                     <p className=" mb-4 fs-3 text-uppercase text-center">Distance Learning</p>
                                     <div>
-                                        <Form>
+                                        <Form onSubmit={handleRegister}>
 
                                             <Form.Group className="mb-3" controlId="formBasicName">
                                                 <Form.Label className="text-center">
-                                                    Your Name
+                                                    Your Full Name
                                                 </Form.Label>
-                                                <Form.Control name='name' type="text" placeholder="Your Name" />
+                                                <Form.Control name='name' type="text" placeholder="Your Full Name" />
                                             </Form.Group>
 
                                             <Form.Group className="mb-3" controlId="formBasicphotoURL">
@@ -53,7 +107,7 @@ const Register = () => {
                                             >
                                                 <div>
                                                     <Form.Text className="text-danger p-2 fw-bold shadow-lg rounded">
-
+                                                        {error}
                                                     </Form.Text>
                                                 </div>
                                             </Form.Group>
