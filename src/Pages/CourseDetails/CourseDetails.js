@@ -81,9 +81,7 @@ const CourseDetails = () => {
                                     <div className="shadow p-2 rounded">
                                         <b><i>Level:</i></b> {level}
                                     </div>
-                                    <div className="shadow p-2 rounded">
-                                        <b><i>Price:</i></b> <FaDollarSign></FaDollarSign> {price}
-                                    </div>
+
                                 </div>
                                 <Card.Text className="text-justify">
                                     <b><i>Course Details:</i></b> {details}
@@ -101,8 +99,7 @@ const CourseDetails = () => {
                                     <span><b><i>{ratings}</i></b></span>
                                 </div>
                                 <div>
-
-
+                                    <b><i>Price:</i></b> <FaDollarSign></FaDollarSign> {price}
                                 </div>
 
                             </Card.Footer>

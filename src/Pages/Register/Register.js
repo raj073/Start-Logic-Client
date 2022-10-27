@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import { useState } from 'react';
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 
@@ -11,6 +11,7 @@ const Register = () => {
     const [error, setError] = useState('');
 
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = (event) => {
 
