@@ -10,18 +10,18 @@ const Footer = () => {
             <div className="footer-basic">
                 <footer>
                     <div className="social">
-                        <Link>
+                        <a href='https://www.facebook.com/' target="_blank" rel="noopener noreferrer">
                             <FaFacebook className='link-icon'></FaFacebook>
-                        </Link>
-                        <Link>
+                        </a>
+                        <a href='https://twitter.com/' target="_blank" rel="noopener noreferrer">
                             <FaTwitter className='link-icon'></FaTwitter>
-                        </Link>
-                        <Link>
+                        </a>
+                        <a href='https://www.instagram.com/' target="_blank" rel="noopener noreferrer">
                             <FaInstagram className='link-icon'></FaInstagram>
-                        </Link>
-                        <Link>
+                        </a>
+                        <a href='https://www.linkedin.com/' target="_blank" rel="noopener noreferrer">
                             <FaLinkedin className='link-icon'></FaLinkedin>
-                        </Link>
+                        </a>
 
                     </div>
                     <ul className="list-inline">
