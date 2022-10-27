@@ -4,15 +4,20 @@ import Button from 'react-bootstrap/Button';
 import { FaFilePdf, FaStar, FaRegArrowAltCircleRight, FaDollarSign } from "react-icons/fa";
 import { Col, Container, Row, Card } from 'react-bootstrap';
 import Image from 'react-bootstrap/Image';
+import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
 
     const courseDetails = useLoaderData();
     const { _id, title, details, img_url, ratings, course_name, course_id, author, author_img_url, assessments, lession, duration, student, level, price } = courseDetails;
 
+    const ref = React.createRef();
+
     return (
 
         <div>
+
+
 
             <Container>
 
@@ -31,15 +36,21 @@ const CourseDetails = () => {
                                 </div>
                                 <div>
                                     <Link>
-                                        <Button variant="outline-primary">
-                                            <FaFilePdf></FaFilePdf>  DownLoad PDF
-                                        </Button>
+
+                                        <Pdf targetRef={ref} filename="document.pdf">
+                                            {({ toPdf }) => <Button onClick={toPdf} className='rounded-0' variant="outline-primary">
+                                                <FaFilePdf></FaFilePdf>  DownLoad PDF
+                                            </Button>}
+                                        </Pdf>
+                                        {/* <div ref={ref}>
+                                            <h1>React to pdf</h1>
+                                        </div> */}
                                     </Link>
                                 </div>
 
                             </Card.Header>
                             <Card.Img variant="top" src={img_url} />
-                            <Card.Body>
+                            <Card.Body ref={ref}>
                                 <Card.Title>Course Tiltle: {title}</Card.Title>
                                 <div className="d-flex justify-content-evenly mb-3 mt-4">
                                     <div className="shadow p-2 rounded">
@@ -77,7 +88,7 @@ const CourseDetails = () => {
                                 <Card.Text className="text-justify">
                                     <b><i>Course Details:</i></b> {details}
                                 </Card.Text>
-                                <Link to={`/courses/course_id/${_id}`}>
+                                <Link to={`/checkout/${course_id}`}>
                                     <Button variant="outline-warning">
                                         Get Premium Access <FaRegArrowAltCircleRight></FaRegArrowAltCircleRight>
                                     </Button>

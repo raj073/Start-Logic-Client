@@ -1,7 +1,11 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
 
 const Checkout = () => {
+
+    const details = useLoaderData();
+
 
     return (
         <div>
@@ -16,7 +20,7 @@ const Checkout = () => {
 
                     <Col lg="8">
 
-                        <h1>This is Checkout.</h1>
+                        <h1>CheckOut Private Route: {details.title}</h1>
 
                     </Col>
 
