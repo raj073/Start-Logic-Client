@@ -8,7 +8,7 @@ import Image from 'react-bootstrap/Image';
 const CourseDetails = () => {
 
     const courseDetails = useLoaderData();
-    const { title, details, img_url, ratings, course_name, course_id, author, author_img_url, assessments, lession, duration, student, level, price } = courseDetails;
+    const { _id, title, details, img_url, ratings, course_name, course_id, author, author_img_url, assessments, lession, duration, student, level, price } = courseDetails;
 
     return (
 
@@ -77,7 +77,7 @@ const CourseDetails = () => {
                                 <Card.Text className="text-justify">
                                     <b><i>Course Details:</i></b> {details}
                                 </Card.Text>
-                                <Link>
+                                <Link to={`/courses/course_id/${_id}`}>
                                     <Button variant="outline-warning">
                                         Get Premium Access <FaRegArrowAltCircleRight></FaRegArrowAltCircleRight>
                                     </Button>

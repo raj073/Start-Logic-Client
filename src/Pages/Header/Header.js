@@ -12,6 +12,7 @@ import Icon from '../../assets/images/distance-learning.png';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
+import toast from 'react-hot-toast';
 
 
 const Header = () => {
@@ -23,6 +24,9 @@ const Header = () => {
         logOut()
             .then(() => {
                 navigate('/login');
+                toast.success('User Successfully Logout', {
+                    position: "top-right"
+                });
             })
             .catch(error => {
                 console.log(error);
