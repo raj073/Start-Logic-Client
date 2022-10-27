@@ -58,10 +58,7 @@ const CourseDetails = () => {
                                     <div className="shadow p-2 rounded">
                                         <b><i>Lessions:</i></b> {lession}
                                     </div>
-                                    <div className="shadow p-2 rounded">
-                                        <FaStar className='text-warning me-2'></FaStar>
-                                        <span><b><i>{ratings}</i></b></span>
-                                    </div>
+
                                 </div>
                                 <div className="d-flex justify-content-evenly mb-3 mt-4">
                                     <div className="shadow p-2 rounded">
@@ -86,6 +83,18 @@ const CourseDetails = () => {
                                     </Button>
                                 </Link>
                             </Card.Body>
+                            <Card.Footer className="d-flex justify-content-between">
+
+                                <div>
+                                    <FaStar className='text-warning me-2'></FaStar>
+                                    <span><b><i>{ratings}</i></b></span>
+                                </div>
+                                <div>
+
+
+                                </div>
+
+                            </Card.Footer>
                         </Card>
 
                     </Col>

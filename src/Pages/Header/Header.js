@@ -11,6 +11,7 @@ import { FaUserAlt } from "react-icons/fa";
 import Icon from '../../assets/images/distance-learning.png';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 
 
 const Header = () => {
@@ -50,9 +51,13 @@ const Header = () => {
                         <Nav.Link><Link to='/courses'><Button variant=''>Courses</Button></Link></Nav.Link>
                         <Nav.Link><Link to='/blog'><Button variant=''>Blog</Button></Link></Nav.Link>
                         <Nav.Link><Link to="/faq"><Button variant=''>FAQ</Button></Link></Nav.Link>
+                        <Nav.Link>
+                            <BootstrapSwitchButton checked={true} width={100} onlabel='Light' offlabel='Dark' onstyle="light" offstyle="dark" />
+                        </Nav.Link>
                     </Nav>
 
                     <Nav>
+
 
                         {
                             user?.uid ?

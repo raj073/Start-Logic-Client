@@ -10,16 +10,16 @@ const Footer = () => {
             <div className="footer-basic">
                 <footer>
                     <div className="social">
-                        <Link >
+                        <Link>
                             <FaFacebook className='link-icon'></FaFacebook>
                         </Link>
-                        <Link >
+                        <Link>
                             <FaTwitter className='link-icon'></FaTwitter>
                         </Link>
-                        <Link >
+                        <Link>
                             <FaInstagram className='link-icon'></FaInstagram>
                         </Link>
-                        <Link >
+                        <Link>
                             <FaLinkedin className='link-icon'></FaLinkedin>
                         </Link>
 
