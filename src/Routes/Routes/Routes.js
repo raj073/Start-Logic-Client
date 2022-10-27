@@ -24,17 +24,17 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses',
                 element: <Courses></Courses>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://distance-learning.vercel.app/course')
             },
             {
                 path: '/courses/:id',
                 element: <CourseDetails></CourseDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://distance-learning.vercel.app/course/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute> <Checkout></Checkout> </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://distance-learning.vercel.app/course/${params.id}`)
 
             },
             {
