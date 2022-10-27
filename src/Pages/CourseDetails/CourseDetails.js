@@ -23,11 +23,11 @@ const CourseDetails = () => {
 
                 <Row className="justify-content-md-center">
 
-                    <Col lg="2">
+                    <Col lg="3">
 
                     </Col>
 
-                    <Col lg="8">
+                    <Col lg="6">
 
                         <Card className="">
                             <Card.Header className='d-flex justify-content-between align-items-center mb-2'>
@@ -67,7 +67,7 @@ const CourseDetails = () => {
                                     </div>
 
                                     <div className="shadow p-2 rounded">
-                                        <b><i>Lessions:</i></b> {lession}
+                                        <b><i>Lessions:</i></b> {lession.slice(0, 2)}
                                     </div>
 
                                 </div>
@@ -107,7 +107,7 @@ const CourseDetails = () => {
 
                     </Col>
 
-                    <Col lg="2">
+                    <Col lg="3">
 
                     </Col>
 
